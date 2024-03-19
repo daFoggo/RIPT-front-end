@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'SFCompactDisplay-Bold';
+    font-family: 'SFCompactDisplay-Heavy';
+    font-family: 'SFCompactDisplay-Regular';
+    font-family: 'SFCompactDisplay-Light';
+    src: url("/src/assets/fonts/SFCompactDisplay-Bold.otf") format('opentype'),
+    url("/src/assets/fonts/SFCompactDisplay-Heavy.otf") format('opentype'),
+    url("/src/assets/fonts/SFCompactDisplay-Regular.otf") format('opentype'),
+    url("/src/assets/fonts/SFCompactDisplay-Light.otf") format('opentype');
+
+
+}
+
+#LoginP {
+    font-family: 'SFCompactDisplay-Light';
+}
