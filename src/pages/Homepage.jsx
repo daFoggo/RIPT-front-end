@@ -1,19 +1,26 @@
-import Notification from "../components/Notification";
 import { useState } from "react";
 import "./Homepage.css"
 import { Link } from "react-router-dom";
+import Notification from "../components/Notification";
+import UserDropDown from "../components/UserDropDown";
+
 const Homepage = () => {
   const [notification, setNotification] = useState(false);
+  const [userDropDown, setUserDropDown] = useState(false);
   const [header, setHeader] = useState("Trang chủ");
 
   function handleSetNotification() {
     setNotification(n => !n);
   }
 
+  function handleSetUserDropDown() {
+    setUserDropDown(u => !u);
+  }
+
   function handleSetHeader(event) {
     setHeader(event.target.value);
   }
-  
+
   return (
     <div className="home-page bg-gradient-to-tr from-[#f0f7ff] to-[#e0eefe] flex w-screen h-screen">
       {/* Left  Bar */}
@@ -50,7 +57,7 @@ const Homepage = () => {
             <p className="ml-2">Lịch</p>
           </a>
 
-          <a href="" className="mb-8 flex items-center hover:bg-[#d2e7fe] hover:text-[#1e3e8a] duration-200 p-1 rounded" onClick={handleSetHeader}> 
+          <a href="" className="mb-8 flex items-center hover:bg-[#d2e7fe] hover:text-[#1e3e8a] duration-200 p-1 rounded" onClick={handleSetHeader}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list-task" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z" />
               <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z" />
@@ -92,14 +99,15 @@ const Homepage = () => {
           <div>
             <div className="user-and-not flex justify-end items-center">
               {/* Notification Button */}
-              <div className="notification bg-[#e2effe] p-2 rounded ml-8 cursor-pointer mr-3 hover:scale-105 duration-300" onClick={handleSetNotification}>
+              <div className="notification-button bg-[#e2effe] p-2 rounded ml-8 cursor-pointer mr-3 hover:scale-110 duration-300" onClick={handleSetNotification}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bell" viewBox="0 0 16 16">
                   <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6" />
                 </svg>
               </div>
+              {notification && <Notification className="active"/>}
 
               {/* User */}
-              <div className="user flex justify-between border-l-2 pl-3">
+              <div className="user flex justify-between border-l-2 pl-3 cursor-pointer" onClick={handleSetUserDropDown}>
                 <div className="avatar mr-4">
                   <img className="w-10 h-10 p-1 rounded-full ring-2 ring-[#172754] dark:ring-[#172754]" src="src/assets/imgs/logo.jpg"></img>
                 </div>
@@ -108,6 +116,8 @@ const Homepage = () => {
                   <p className="role text-xs text-slate-500">Nhân viên</p>
                 </div>
               </div>
+              {userDropDown && <UserDropDown className="active"/>}
+
             </div>
           </div>
         </div>
@@ -132,9 +142,6 @@ const Homepage = () => {
           <p className="text-xl">Week&apos;s schedule</p>
         </div>
       </div>
-
-      {/* Show Notification */}
-      {notification && <Notification />}
 
     </div>
   )

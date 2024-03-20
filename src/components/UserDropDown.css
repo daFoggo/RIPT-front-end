@@ -10,19 +10,19 @@
     }
 }
 
-.notification {
+.userDropDown {
     position: absolute;
     top: 5.5rem;
-    right: 15rem;
-    width: 100%;
-    max-width: 300px;
+    right: 2rem;
+    width: 150px;
+    padding: 15px 3px 15px 3px;
     border-radius: 0.5rem;
     opacity: 0;
     transform: translateY(-20px);
     animation: slideDown 0.3s forwards;
 }
 
-.notification.active {
+.userDropDown.active {
     opacity: 1;
     transform: translateY(0);
 }
