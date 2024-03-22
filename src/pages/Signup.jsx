@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 
@@ -27,12 +26,20 @@ const Login = () => {
                             <input className="p-2 rounded-xl border border-blue-200 text-sm" type="text" name="email" placeholder="Email" />
                             <input className="p-2 rounded-xl border border-blue-200 w-full text-sm" type="password" name="password" placeholder="Mật khẩu" />
                             <input className="p-2 rounded-xl border border-blue-200 w-full text-sm" type="password" name="confirmPassword" placeholder="Xác nhận mật khẩu" />
-                                <Link to="/login">
+                            <Link to="/login">
                                 <div className="flex">
                                     <button className="bg-[#2f61ff] rounded-xl flex-1 text-white py-2 hover:scale-105 hover:bg-[#0c30ff] duration-300">Đăng kí</button>
                                 </div>
-                                </Link>
+                            </Link>
                         </form>
+
+                        <div className="mt-5 text-xs flex justify-between border-t-2 py-4 items-center">
+                            <p>Đã có tài khoản?</p>
+                            <Link to="/login">
+                                <button className="py-2 px-5 rounded-md border border-blue-500 bg-[#2f61ff] hover:bg-[#0c30ff] text-white text- hover:scale-105 duration-300">Đăng nhập</button>
+                            </Link>
+                        </div>
+
                         <div>
                             <a href="https://ript.vn/" className=" text-sm flex items-center justify-between mt-20">
                                 <p className=" mt-4 text-[#0a175c]">Viện khoa học kỹ thuật bưu điện | RIPT</p>

@@ -9,9 +9,9 @@ const UserDropDown = () => {
           <Link to="/account">Hồ sơ</Link>
         </li>
         <li className="border-b-2">
-          <Link>Cài đặt</Link></li>
+          <Link to="/setting">Cài đặt</Link></li>
         <li className="border-b-2">
-          <Link>Đăng xuất</Link>
+          <Link to="/login">Đăng xuất</Link>
         </li>
       </ul>
     </div>

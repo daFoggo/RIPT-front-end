@@ -5,7 +5,9 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
+import HomePage from './pages/HomePage.jsx'
 import Account from './pages/Account.jsx'
+import Setting from './pages/Setting.jsx'
 import Calendar from './pages/Calendar.jsx'
 import TodaySchedule from './pages/TodaySchedule.jsx'
 import CreateForm from './pages/CreateForm.jsx'
@@ -17,8 +19,16 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: "/",
+        element: <HomePage />
+      },
+      {
         path: "/account",
         element: <Account />
+      },
+      {
+        path: "/setting",
+        element: <Setting />
       },
       {
         path: "/calendar",

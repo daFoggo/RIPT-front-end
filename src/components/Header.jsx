@@ -6,6 +6,7 @@ import UserDropDown from "./UserDropDown";
 const Header = () => {
     const [notification, setNotification] = useState(false);
     const [userDropDown, setUserDropDown] = useState(false);
+    
     function handleSetNotification() {
         setNotification(n => !n);
     }
