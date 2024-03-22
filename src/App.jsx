@@ -1,14 +1,7 @@
-import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Header from './components/Header'
 import './App.css'
-import HomePage from './pages/HomePage'
-import Account from './pages/Account'
-import Calendar from './pages/Calendar'
-import TodaySchedule from './pages/TodaySchedule'
-import CreateForm from './pages/CreateForm'
-import Report from './pages/Report'
-
+import { Outlet } from 'react-router-dom'
 
 const App = () => {
     return (
@@ -16,14 +9,7 @@ const App = () => {
             <NavBar></NavBar>
             <div className='bg-[white] flex flex-col flex-auto mt-3 mr-3 ml-16 rounded-2xl p-5 shadow-md'>
                 <Header></Header>
-                <Routes>
-                    <Route path="/" element={<HomePage />}></Route>
-                    <Route path="/account" element={<Account />}></Route>
-                    <Route path="/calendar" element={<Calendar />}></Route>
-                    <Route path="/today-schedule" element={<TodaySchedule />}></Route>
-                    <Route path="/create-form" element={<CreateForm />}></Route>
-                    <Route path="/report" element={<Report />}></Route>
-                </Routes>
+                <Outlet></Outlet>
             </div>
         </div>
     )
