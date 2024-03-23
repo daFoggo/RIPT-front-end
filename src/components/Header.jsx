@@ -2,11 +2,12 @@ import { useState } from "react";
 import "./Header.css"
 import Notification from "./Notification";
 import UserDropDown from "./UserDropDown";
+import PropTypes from "prop-types";
 
-const Header = () => {
+const Header = (props) => {
     const [notification, setNotification] = useState(false);
     const [userDropDown, setUserDropDown] = useState(false);
-    
+
     function handleSetNotification() {
         setNotification(n => !n);
     }
@@ -14,14 +15,13 @@ const Header = () => {
     function handleSetUserDropDown() {
         setUserDropDown(u => !u);
     }
-
-
+    
     return (
         <div>
             {/* Header */}
             <div className="flex justify-between mb-12 border-b-2 pb-3">
                 <div>
-                    <h1 className="text-2xl font-semibold">Trang chủ</h1>
+                    <h1 className="text-2xl font-semibold">{props.onTitle}</h1>
                 </div>
 
                 <div>
@@ -50,6 +50,10 @@ const Header = () => {
             </div>
         </div>
     )
+}
+
+Header.propTypes = {
+    onTitle: PropTypes.string
 }
 
 export default Header
