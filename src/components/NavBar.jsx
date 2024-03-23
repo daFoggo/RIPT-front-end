@@ -4,7 +4,7 @@ import "./NavBar.css";
 
 const NavBar = (props) => {
     return (
-        <nav>
+        <nav className="h-dvh">
             <div className="navBar flex flex-col pl-5 pt-3">
                 {/* Logo */}
                 <Link to="/">
