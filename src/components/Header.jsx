@@ -18,23 +18,31 @@ const Header = (props) => {
     function handleSetUserDropDown() {
         setUserDropDown(u => !u);
     }
-    
+
     useEffect(() => {
-      let handler = (event) => {
-        if (!notiRef.current.contains(event.target)) {
-          setNotification();
+        let handler = (event) => {
+            if (!notiRef.current.contains(event.target)) {
+                setNotification();
+            }
         }
-      }
-      document.addEventListener("mousedown", handler);
+        document.addEventListener("mousedown", handler);
+
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        }
     });
 
     useEffect(() => {
-      let handler = (event) => {
-        if (!userRef.current.contains(event.target)) {
-          setUserDropDown();
+        let handler = (event) => {
+            if (!userRef.current.contains(event.target)) {
+                setUserDropDown();
+            }
         }
-      }
-      document.addEventListener("mousedown", handler);
+        document.addEventListener("mousedown", handler);
+        
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        }
     });
 
     return (
