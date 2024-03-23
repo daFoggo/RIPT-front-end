@@ -1,14 +1,22 @@
-import Modal from '../components/Modal'
+import ModifyInfoModal from '../components/ModifyInfoModal'
+import ModifyPasswordModal from '../components/ModifyPasswordModal'
 import { useState } from 'react'
 
 const Account = () => {
-  const [showModal, setShowModal] = useState(false)
-  function handleSetShowModal() {
-    setShowModal(s => !s)
+  const [modifyInfoModal, SetModifyInfoModal] = useState(false)
+  const [modifyPasswordModal, setModifyPasswordModal] = useState(false)
+
+  function handleSetModifyInfoModal() {
+    SetModifyInfoModal(s => !s)
+  }
+
+  function handleSetModifyPasswordModal() {
+    setModifyPasswordModal(s => !s)
   }
 
   return (
     <div className="flex">
+      {/*Info Card*/}
       <div className="infoCard bg-[#eff7ff] rounded-xl flex flex-col items-center w-1/3 p-8 mr-4">
         <div className="flex flex-col">
           <img className="w-52 h-52 rounded-full bg-cover border-4 border-[#bed5fd]" src="src\assets\imgs\avatar sinh vien.jpg" alt="" />
@@ -49,9 +57,11 @@ const Account = () => {
           </div>
         </div>
       </div>
+
+      {/*Info Form*/}
       <div className="infoForm bg-[#eff7ff] w-full rounded-xl p-4 flex flex-col gap-5">
-        <div className="self-end cursor-pointer" onClick={handleSetShowModal}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
+        <div className="self-end cursor-pointer" onClick={handleSetModifyInfoModal}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square hover:scale-110 duration-300" viewBox="0 0 16 16">
             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
             <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
           </svg>
@@ -92,8 +102,13 @@ const Account = () => {
             </div>
           </div>
         </form>
+
+        <div className="self-end cursor-pointer" onClick={handleSetModifyPasswordModal}>
+          <button className='bg-[#172754] text-white rounded-md py-1 px-2 hover:bg-[#2c4383] hover:text-[white] hover:scale-105 duration-300'>Đổi mật khẩu</button>
+        </div>
       </div>
-      {showModal && <Modal onSetShowModal={handleSetShowModal}/>}
+      {modifyInfoModal && <ModifyInfoModal onSetShowModal={handleSetModifyInfoModal}/>}
+      {modifyPasswordModal && <ModifyPasswordModal onSetShowModal={handleSetModifyPasswordModal}/>}
     </div>
   )
 }

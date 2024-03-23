@@ -26,21 +26,21 @@ const Modal = (props) => {
           </div>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Email :</label>
-            <input className='w-3/4 bg-slate-100 rounded-md p-1' type="email" />
+            <input className='w-3/4 bg-slate-100 rounded-md p-1' type="email" placeholder='Nhập email'/>
           </div>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Số điện thoại :</label>
-            <input className='w-3/4 bg-slate-100 rounded-md p-1' type="tel" />
+            <input className='w-3/4 bg-slate-100 rounded-md p-1' type="tel" placeholder='Nhập số điện thoại'/>
           </div>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Địa chỉ :</label>
-            <input className='w-3/4 bg-slate-100 rounded-md p-1' type="text" />
+            <input className='w-3/4 bg-slate-100 rounded-md p-1' type="text" placeholder='Nhập địa chỉ'/>
           </div>
 
         </div>
         <div className='mt-3 flex justify-end'>
-          <button className='bg-[#e5f0ff96] rounded-md py-2 px-5 mr-2' onClick={props.onSetShowModal}>Huỷ</button>
-          <button className='bg-[#172754] text-white rounded-md py-2 px-5' onClick={props.onSetShowModal}>Lưu</button>
+          <button className='bg-[#e5f0ff96] rounded-md py-2 px-5 mr-2 hover:bg-[#b7c1cfa1] hover:text-[#385092]' onClick={props.onSetShowModal}>Huỷ</button>
+          <button className='bg-[#172754] text-white rounded-md py-2 px-5 hover:bg-[#2c4383] hover:text-[white]' onClick={props.onSetShowModal}>Lưu</button>
         </div>
       </div>
     </div>
