@@ -30,7 +30,7 @@ const Header = (props) => {
         return () => {
             document.removeEventListener("mousedown", handler);
         }
-    });
+    }, []);
 
     useEffect(() => {
         let handler = (event) => {
@@ -43,7 +43,7 @@ const Header = (props) => {
         return () => {
             document.removeEventListener("mousedown", handler);
         }
-    });
+    }, []);
 
     return (
         <div>
