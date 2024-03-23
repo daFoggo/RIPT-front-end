@@ -1,22 +1,10 @@
 import "./UserDropDown.css"
 import { Link } from "react-router-dom"
-import {useEffect, useRef} from "react";
-import PropTypes from 'prop-types';
 
-const UserDropDown = (props) => {
-  let menuRef = useRef();
-
-  useEffect(() => {
-    let handler = (event) => {
-      if (!menuRef.current.contains(event.target)) {
-        props.onSetUserDropDown();
-      }
-    }
-    document.addEventListener("mousedown", handler);
-  });
+const UserDropDown = () => {
 
   return (
-    <div className="flex flex-col userDropDown bg-white shadow-md items-center text-center" ref={menuRef}>
+    <div className="flex flex-col userDropDown bg-white shadow-md items-center text-center">
       <ul className="flex flex-col gap-4">
         <li className="border-b-2">
           <Link to="/account">Hồ sơ</Link>
@@ -29,10 +17,6 @@ const UserDropDown = (props) => {
       </ul>
     </div>
   )
-}
-
-UserDropDown.propTypes = {
-  onSetUserDropDown: PropTypes.func
 }
 
 export default UserDropDown
