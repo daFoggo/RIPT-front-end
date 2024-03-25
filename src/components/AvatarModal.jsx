@@ -17,7 +17,8 @@ const AvatarModal = (props) => {
                         </svg>
                         <p><b>Kéo và thả ảnh</b> vào đây hoặc <b>chọn ảnh</b> từ máy</p>
                     </div>
-                    <button className='bg-[#172754] text-white rounded-md py-2 px-5 hover:bg-[#2c4383] hover:text-[white]'>Chọn ảnh từ máy</button>
+                    <input type="file"
+                        className="file:bg-[#172754] file:text-white file:rounded-md file:py-2 file:px-5 file:hover:bg-[#2c4383] file:hover:text-[white] file:border-none"/>
                 </div>
                 <div className='mt-3 flex justify-end'>
                     <button className='bg-[#e5f0ff96] rounded-md py-2 px-5 mr-2 hover:bg-[#b7c1cfa1] hover:text-[#385092]' onClick={props.onSetShowModal}>Huỷ</button>
