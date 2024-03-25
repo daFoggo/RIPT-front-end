@@ -36,13 +36,9 @@
 @keyframes slideIn {
     from {
         transform: scaleY(0);
-        background-color: transparent;
-        border-radius: 0 0 0.5rem 0.5rem;
     }
 
     to {
         transform: scaleY(1);
-        background-color: #d2e7fe;
-        border-radius: 0 0 0.5rem 0.5rem;
     }
 }

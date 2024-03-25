@@ -65,10 +65,10 @@ const NavBar = (props) => {
                         <div className={`calendarDropDown px-5 py-3 relative ${calendarActive ? 'active' : 'inactive'}`}>
                             <ul className="border-l-2 pl-3 border-[#172754] flex flex-col gap-3">
                                 <Link to="/viewCalendar">
-                                    <li onClick={props.onSetTitle} className="hover:text-[#344b8a]">Xem lịch</li>
+                                    <li onClick={props.onSetTitle} className="hover:text-[#344b8a] hover:bg-[#d2e7fe] rounded p-1">Xem lịch</li>
                                 </Link>
                                 <Link to="/schedule-registry">
-                                    <li onClick={props.onSetTitle} className="hover:text-[#344b8a]">Đăng ký lịch</li>
+                                    <li onClick={props.onSetTitle} className="hover:text-[#344b8a] hover:bg-[#d2e7fe] rounded p-1">Đăng ký lịch</li>
                                 </Link>
                             </ul>
                         </div>
