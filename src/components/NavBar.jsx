@@ -1,8 +1,14 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import "./NavBar.css";
 
 const NavBar = (props) => {
+    const [calendarActive, setCalendarActive] = useState(false);
+
+    function handleSetCalendarActive() {
+        setCalendarActive(c => !c);
+    }
     return (
         <nav className="h-dvh">
             <div className="navBar flex flex-col pl-5 pt-3">
@@ -20,7 +26,7 @@ const NavBar = (props) => {
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-house" viewBox="0 0 16 16">
                             <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
                         </svg>
-                        <Link to="/">
+                        <Link to="/" >
                             <p className="ml-2" onClick={props.onSetTitle}>Trang chủ</p>
                         </Link>
                     </div>
@@ -34,16 +40,39 @@ const NavBar = (props) => {
                         </Link>
                     </div>
 
-                    <div href="" className="mb-8 flex items-center hover:bg-[#d2e7fe] hover:text-[#1e3e8a] duration-200 p-1 rounded">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-calendar-check" viewBox="0 0 16 16">
-                            <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0" />
-                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
-                        </svg>
-                        <Link to="/calendar">
-                            <p className="ml-2" onClick={props.onSetTitle}>Lịch</p>
-                        </Link>
-                    </div>
+                    <div>
 
+                    </div>
+                    <div className="flex flex-col rounded-lg mb-8" onClick={handleSetCalendarActive}>
+                        <div href="" className={`calendar flex items-center hover:text-[#1e3e8a] hover:bg-[#d2e7fe] duration-200 p-1 rounded ${calendarActive ? 'active' : 'inactive'}`}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-calendar-check" viewBox="0 0 16 16">
+                                <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0" />
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+                            </svg>
+                            <p className="ml-2 mr-4">Lịch</p>
+                            {!calendarActive ?
+                                (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                </svg>)
+                                :
+                                (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                                </svg>
+                                )
+
+                            }
+                        </div>
+                        <div className={`calendarDropDown px-5 py-3 relative ${calendarActive ? 'active' : 'inactive'}`}>
+                            <ul className="border-l-2 pl-3 border-[#172754] flex flex-col gap-3">
+                                <Link to="/viewCalendar">
+                                    <li onClick={props.onSetTitle} className="hover:text-[#344b8a]">Xem lịch</li>
+                                </Link>
+                                <Link to="/schedule-registry">
+                                    <li onClick={props.onSetTitle} className="hover:text-[#344b8a]">Đăng ký lịch</li>
+                                </Link>
+                            </ul>
+                        </div>
+                    </div>
                     <div href="" className="mb-8 flex items-center hover:bg-[#d2e7fe] hover:text-[#1e3e8a] duration-200 p-1 rounded">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list-task" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z" />

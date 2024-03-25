@@ -8,7 +8,8 @@ import Signup from './pages/Signup.jsx'
 import HomePage from './pages/HomePage.jsx'
 import Account from './pages/Account.jsx'
 import Setting from './pages/Setting.jsx'
-import Calendar from './pages/Calendar.jsx'
+import ViewCalendar from './pages/ViewCalendar.jsx'
+import ScheduleRegistry from './pages/ScheduleRegistry.jsx'
 import TodaySchedule from './pages/TodaySchedule.jsx'
 import CreateForm from './pages/CreateForm.jsx'
 import Report from './pages/Report.jsx'
@@ -31,8 +32,12 @@ const router = createBrowserRouter([
         element: <Setting />
       },
       {
-        path: "/calendar",
-        element: <Calendar />
+        path: "/viewCalendar",
+        element: <ViewCalendar />
+      },
+      {
+        path: "/schedule-registry",
+        element: <ScheduleRegistry />
       },
       {
         path: "/today-schedule",

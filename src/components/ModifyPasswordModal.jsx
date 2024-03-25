@@ -13,15 +13,15 @@ const ModifyPasswordModal = (props) => {
         <div className='mt-3 flex flex-col border-b-2 pb-3 gap-5'>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Mật khẩu cũ :</label>
-            <input className='w-2/3 bg-slate-100 rounded-md p-1' type="password" placeholder='Nhập mật khẩu cũ' />
+            <input className='w-1/2 bg-slate-100 rounded-md p-1' type="password" placeholder='Nhập mật khẩu cũ' />
           </div>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Mật khẩu mới :</label>
-            <input className='w-2/3 bg-slate-100 rounded-md p-1' type="password" placeholder='Nhập mật khẩu mới'/>
+            <input className='w-1/2 bg-slate-100 rounded-md p-1' type="password" placeholder='Nhập mật khẩu mới'/>
           </div>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Xác nhận mật khẩu :</label>
-            <input className='w-2/3 bg-slate-100 rounded-md p-1' type="password" placeholder='Nhập lại mật khẩu mới'/>
+            <input className='w-1/2 bg-slate-100 rounded-md p-1' type="password" placeholder='Nhập lại mật khẩu mới'/>
           </div>
         </div>
         <div className='mt-3 flex justify-end'>
