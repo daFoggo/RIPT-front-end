@@ -1,5 +1,6 @@
 import NavBar from './layouts/NavBar'
 import Header from './layouts/Header'
+import 'react-image-crop/dist/ReactCrop.css'
 
 import './App.css'
 import { useState } from 'react'
