@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./Header.css"
-import Notification from "./Notification";
-import UserDropDown from "./UserDropDown";
+import Notification from "../components/Notification";
+import UserDropDown from "../components/UserDropDown";
 import PropTypes from "prop-types";
 
 const Header = (props) => {

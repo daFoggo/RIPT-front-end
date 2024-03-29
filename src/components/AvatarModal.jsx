@@ -6,7 +6,7 @@ const AvatarModal = (props) => {
             <div className="flex flex-col w-1/3 bg-white p-5 rounded-md">
                 <div className="header flex justify-between pb-3 border-b-2">
                     <h1 className="font-semibold">Cập nhật ảnh đại diện</h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6" onClick={props.onSetShowModal}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </div>

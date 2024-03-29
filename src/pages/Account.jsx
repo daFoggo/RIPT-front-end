@@ -26,9 +26,9 @@ const Account = () => {
       <div className="infoCard bg-[#eff7ff] rounded-xl flex flex-col items-center w-1/3 p-8 mr-4">
         <div className="flex flex-col">
           <div className="relative">
-            <img className="w-52 h-52 rounded-full bg-cover border-4 border-[#bed5fd]" src="src\assets\imgs\avatar sinh vien.jpg" alt="" />
-            <div className='absolute -bottom-[0.85rem] left-[5.6rem] bg-[#eff7ff] rounded-full border-[#bed5fd] border-2 p-1 cursor-pointer' onClick={handleSetAvatarModal}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+            <img className="w-52 h-52 rounded-full bg-cover border-4 border-[#bed5fd] hover:brightness-105" src="src\assets\imgs\avatar sinh vien.jpg" alt="" onClick={handleSetAvatarModal}/>
+            <div className='absolute -bottom-[0.6rem] left-[5.6rem] bg-[#eff7ff] rounded-full border-[#bed5fd] border-2 p-1 cursor-pointer' onClick={handleSetAvatarModal}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-3   h-3">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
               </svg>
             </div>

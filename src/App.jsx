@@ -1,5 +1,6 @@
-import NavBar from './components/NavBar'
-import Header from './components/Header'
+import NavBar from './layouts/NavBar'
+import Header from './layouts/Header'
+
 import './App.css'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
@@ -21,4 +22,4 @@ const App = () => {
     )
 }
 
-export default App
+export default App;
