@@ -104,8 +104,8 @@ const ImageCropper = (props) => {
                                 )
                             );
                             const croppedImageDadtaURL = previewCanvasRef.current.toDataURL();
-                            console.log(croppedImageDadtaURL);
-                            props.updateAvatarUrl(croppedImageDadtaURL);
+                            console.log("Cropped Image data", croppedImageDadtaURL);
+                            props.child2updateAvatarUrl(croppedImageDadtaURL);
                         }}
                     >
                         Cắt ảnh
@@ -125,7 +125,7 @@ const ImageCropper = (props) => {
 };
 
 ImageCropper.propTypes = {
-    updateAvatarUrl: PropTypes.func,
+    child2updateAvatarUrl: PropTypes.func,
 };
 
 export default ImageCropper;

@@ -24,7 +24,6 @@ const Account = () => {
 
   function updateAvatarUrl(imageSrc) {
     avatarUrl.current = imageSrc; 
-    console.log(avatarUrl.current);
   }
 
   return (
@@ -214,7 +213,7 @@ const Account = () => {
       {modifyPasswordModal && (
         <ModifyPasswordModal onSetShowModal={handleSetModifyPasswordModal} />
       )}
-      {avatarModal && <AvatarModal updateAvatarUrl={updateAvatarUrl} onSetShowModal={handleSetAvatarModal} />}
+      {avatarModal && <AvatarModal childUpdateAvatarUrl={updateAvatarUrl} onSetShowModal={handleSetAvatarModal} />}
     </div>
   );
 };

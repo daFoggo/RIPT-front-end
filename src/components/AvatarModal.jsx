@@ -23,7 +23,7 @@ const AvatarModal = (props) => {
                         />
                     </svg>
                 </div>
-                <ImageCropper updateAvatar={props.updateAvatarUrl}></ImageCropper>
+                <ImageCropper child2updateAvatarUrl={props.childUpdateAvatarUrl}></ImageCropper>
                 <div className="mt-3 flex justify-end">
                     <button
                         className="bg-[#e5f0ff96] rounded-md py-2 px-5 mr-2 hover:bg-[#b7c1cfa1] hover:text-[#385092]"
@@ -47,7 +47,7 @@ const AvatarModal = (props) => {
 
 AvatarModal.propTypes = {
     onSetShowModal: PropTypes.func,
-    updateAvatarUrl: PropTypes.func,
+    childUpdateAvatarUrl: PropTypes.func,
 };
 
 export default AvatarModal;
