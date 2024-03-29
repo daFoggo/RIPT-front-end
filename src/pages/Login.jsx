@@ -1,9 +1,56 @@
-import { useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
+import AuthContext from "../context/AuthProvider.jsx";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import LoginAPI from "../api/LoginAPI";
 
 
 const Login = () => {
+  const { setAuth } = useContext(AuthContext);
+  const LOGIN_URL = "/authenticate";
+  const emailRef = useRef();
+  const errorRef = useRef();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
+
+  function handleOnChangeEmail(e) {
+    setEmail(e.target.value);
+  }
+
+  function handleOnChangePassword(e) {
+    setPassword(e.target.value);
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      const response = await LoginAPI.post(LOGIN_URL,
+        JSON.stringify({ email, password }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials
+        })
+    } catch (error) {
+    }
+    setEmail("");
+    setPassword("");
+    setSuccess(s => !s);
+  }
+
+  useEffect(() => {
+    emailRef.current.focus();
+  }, [])
+
+  useEffect(() => {
+    setError("");
+
+  }, [email, password])
+
+
   const [showPassword, setShowPassword] = useState(false);
 
   function handleSetShowPassword() {
@@ -13,6 +60,7 @@ const Login = () => {
   return (
     <div className="login-page">
       <section className="min-h-screen flex items-center justify-center backdrop-blur-sm">
+        <p ref={errorRef} className={error ? "errormsg" : ""}></p>
         <div className="flex shadow-lg max-w-3xl p-5 rounded-xl bg-gradient-to-r from-[#f0f7ff] to-[#e0eefe]">
           {/* Form */}
           <div className="sm:w-1/2 px-8">
@@ -21,9 +69,9 @@ const Login = () => {
             <p className="text-sm mt-4 text-[#0a175c]">Cổng đăng nhập phòng Công Nghệ Số</p>
 
             <form action="" className="flex flex-col gap-4">
-              <input className="p-2 mt-8 rounded-xl border border-blue-200 text-sm" type="text" name="email" placeholder="Email" />
+              <input className="p-2 mt-8 rounded-xl border border-blue-200 text-sm" type="text" name="email" placeholder="Email" ref={emailRef} autoComplete="off" onChange={handleOnChangeEmail} value={email} required />
               <div className="relative">
-                <input className="p-2 rounded-xl border border-blue-200 w-full text-sm" type={showPassword ? "text" : "password"} name="password" placeholder="Password" />
+                <input className="p-2 rounded-xl border border-blue-200 w-full text-sm" type={showPassword ? "text" : "password"} name="password" placeholder="Password" onChange={handleOnChangePassword} value={password} required />
                 <div onClick={handleSetShowPassword}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-fill absolute top-1/2 right-3 -translate-y-1/2" viewBox="0 0 16 16">
                     {!showPassword ? (
@@ -43,7 +91,7 @@ const Login = () => {
               </div>
               <Link to="/">
                 <div className="flex">
-                  <button className="bg-[#2f61ff] rounded-xl text-white py-2 hover:scale-105 hover:bg-[#0c30ff] duration-300 flex-1">Đăng nhập</button>
+                  <button className="bg-[#2f61ff] rounded-xl text-white py-2 hover:scale-105 hover:bg-[#0c30ff] duration-300 flex-1" onClick={handleSubmit}>Đăng nhập</button>
                 </div>
               </Link>
             </form>

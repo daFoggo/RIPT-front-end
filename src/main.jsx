@@ -13,6 +13,7 @@ import ScheduleRegistry from './pages/ScheduleRegistry.jsx'
 import TodaySchedule from './pages/TodaySchedule.jsx'
 import CreateForm from './pages/CreateForm.jsx'
 import Report from './pages/Report.jsx'
+import { AuthProvider } from "./context/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )
