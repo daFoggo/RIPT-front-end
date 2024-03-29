@@ -13,11 +13,11 @@ const Modal = (props) => {
         <div className='mt-3 flex flex-col border-b-2 pb-3 gap-5'>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Ngày sinh :</label>
-            <input className='w-3/4 bg-slate-100 rounded-md p-1' type="date" />
+            <input className='w-2/3 bg-slate-100 rounded-md p-1' type="date" />
           </div>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Giới tính :</label>
-            <select name="" id="" className='w-3/4 bg-slate-100 rounded-md p-1'>
+            <select name="" id="" className='w-2/3 bg-slate-100 rounded-md p-1'>
               <option value="">Chọn giới tính</option>
               <option value="male">Nam</option>
               <option value="female">Nữ</option>
@@ -26,15 +26,15 @@ const Modal = (props) => {
           </div>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Email :</label>
-            <input className='w-3/4 bg-slate-100 rounded-md p-1' type="email" placeholder='Nhập email'/>
+            <input className='w-2/3 bg-slate-100 rounded-md p-1' type="email" placeholder='Nhập email'/>
           </div>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Số điện thoại :</label>
-            <input className='w-3/4 bg-slate-100 rounded-md p-1' type="tel" placeholder='Nhập số điện thoại'/>
+            <input className='w-2/3 bg-slate-100 rounded-md p-1' type="tel" placeholder='Nhập số điện thoại'/>
           </div>
           <div className='flex items-center justify-between'>
             <label className='font-semibold mr-3'>Địa chỉ :</label>
-            <input className='w-3/4 bg-slate-100 rounded-md p-1' type="text" placeholder='Nhập địa chỉ'/>
+            <input className='w-2/3 bg-slate-100 rounded-md p-1' type="text" placeholder='Nhập địa chỉ'/>
           </div>
 
         </div>
