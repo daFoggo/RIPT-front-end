@@ -36,12 +36,14 @@ const ImageCropper = (props) => {
                 const { naturalWidth, naturalHeight } = e.currentTarget;
                 if (naturalWidth < MIN_DIMENSION || naturalHeight < MIN_DIMENSION) {
                     setErrorMsg(`Kích cỡ ảnh ít nhất phải là ${MIN_DIMENSION}px`);
-                    return setImageSrc("");
+                    setImageSrc("");
+                    setCrop(null);
+                    return;
                 }
+                setCrop(null);
             });
             setImageSrc(imageUrl);
         });
-
         reader.readAsDataURL(file);
     }
 
@@ -62,10 +64,11 @@ const ImageCropper = (props) => {
     }
 
     return (
-        <>
-            <div className="imageZone mt-3 flex flex-col gap-3 border-b-2 pb-3">
+        <div className="imageZone mt-3 flex flex-col gap-3">
+            <div>
                 <input
                     type="file"
+                    accept="image/*"
                     className="file:bg-[#172754] file:text-white file:rounded-md file:py-2 file:px-5 file:hover:bg-[#2c4383] file:hover:text-[white] file:border-none"
                     onChange={handleOnChangeFile}
                 />
@@ -73,12 +76,12 @@ const ImageCropper = (props) => {
             {errorMsg && <p className="text-red-500 font-semibold">{errorMsg}</p>}
 
             {imageSrc && (
-                <div className="flex flex-col items-center mt-3 pb-3 border-b-2">
+                <div className="flex flex-col items-center mt-3">
                     <ReactCrop
                         crop={crop}
                         circularCrop
                         keepSelection
-                        aspect={1}
+                        aspect={ASPECT_RATIO}
                         minWidth={MIN_DIMENSION}
                         onChange={(percentCrop) => setCrop(percentCrop)}
                     >
@@ -86,11 +89,10 @@ const ImageCropper = (props) => {
                             ref={imgRef}
                             src={imageSrc}
                             alt="Uploaded file"
-                            className="max-h-[70vh]"
                             onLoad={onImageLoad}
+                            style={{ maxHeight: "70vh" }}
                         />
                     </ReactCrop>
-
                     <button
                         className="bg-[#172754] text-white rounded-md py-2 px-5 hover:bg-[#2c4383] hover:text-[white] mt-3"
                         onClick={() => {
@@ -106,26 +108,32 @@ const ImageCropper = (props) => {
                             const croppedImageDadtaURL = previewCanvasRef.current.toDataURL();
                             console.log("Cropped Image data", croppedImageDadtaURL);
                             props.child2updateAvatarUrl(croppedImageDadtaURL);
+                            props.child2OnSetShowModal();
                         }}
                     >
-                        Cắt ảnh
+                        Cắt ảnh và đặt làm ảnh đại diện
                     </button>
                 </div>
             )}
             {crop && (
-                <div className="flex flex-col items-center mt-3">
-                    <canvas
-                        ref={previewCanvasRef}
-                        className="mt-3 border-2 object-contain w-[150px] h-[150px] hidden"
-                    />
-                </div>
+                <canvas
+                    ref={previewCanvasRef}
+                    style={{
+                        display: "none",
+                        border: "1px solid black",
+                        objectFit: "contain",
+                        width: 150,
+                        height: 150,
+                    }}
+                />
             )}
-        </>
+        </div>
     );
 };
 
 ImageCropper.propTypes = {
     child2updateAvatarUrl: PropTypes.func,
+    child2OnSetShowModal: PropTypes.func,
 };
 
 export default ImageCropper;
