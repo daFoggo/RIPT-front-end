@@ -10,6 +10,7 @@ import Account from './pages/Account.jsx'
 import Setting from './pages/Setting.jsx'
 import ViewCalendar from './pages/ViewCalendar.jsx'
 import ScheduleRegistry from './pages/ScheduleRegistry.jsx'
+import TodayTask from './pages/TodayTask.jsx'
 import CreateForm from './pages/CreateForm.jsx'
 import Report from './pages/Report.jsx'
 import { AuthProvider } from "./context/AuthProvider";
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/schedule-registry",
         element: <ScheduleRegistry />
+      },
+      {
+        path: "/today-task",
+        element: <TodayTask />
       },
       {
         path: "/create-form",
