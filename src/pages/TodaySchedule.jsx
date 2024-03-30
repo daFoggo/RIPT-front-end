@@ -1,7 +1,5 @@
 const TodaySchedule = () => {
-  return (
-    <div>TodaySchedule</div>
-  )
-}
+  return <div>TodaySchedule</div>;
+};
 
-export default TodaySchedule
+export default TodaySchedule;

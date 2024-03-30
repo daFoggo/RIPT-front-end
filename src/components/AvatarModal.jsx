@@ -24,7 +24,10 @@ const AvatarModal = (props) => {
                     </svg>
                 </div>
                 <div>
-                    <ImageCropper child2updateAvatarUrl={props.childUpdateAvatarUrl} child2OnSetShowModal={props.onSetShowModal}></ImageCropper>
+                    <ImageCropper
+                        child2updateAvatarUrl={props.childUpdateAvatarUrl}
+                        child2OnSetShowModal={props.onSetShowModal}
+                    ></ImageCropper>
                 </div>
             </div>
         </div>

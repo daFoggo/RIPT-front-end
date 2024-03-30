@@ -4,7 +4,7 @@ import AvatarModal from "../components/AvatarModal";
 import { useState, useRef } from "react";
 
 const Account = () => {
-  const avatarUrl = useRef('src/assets/imgs/RIPT-Logo.png');
+  const avatarUrl = useRef("src/assets/imgs/RIPT-Logo.png");
 
   const [modifyInfoModal, SetModifyInfoModal] = useState(false);
   const [modifyPasswordModal, setModifyPasswordModal] = useState(false);
@@ -23,7 +23,7 @@ const Account = () => {
   }
 
   function updateAvatarUrl(imageSrc) {
-    avatarUrl.current = imageSrc; 
+    avatarUrl.current = imageSrc;
   }
 
   return (
@@ -213,7 +213,12 @@ const Account = () => {
       {modifyPasswordModal && (
         <ModifyPasswordModal onSetShowModal={handleSetModifyPasswordModal} />
       )}
-      {avatarModal && <AvatarModal childUpdateAvatarUrl={updateAvatarUrl} onSetShowModal={handleSetAvatarModal} />}
+      {avatarModal && (
+        <AvatarModal
+          childUpdateAvatarUrl={updateAvatarUrl}
+          onSetShowModal={handleSetAvatarModal}
+        />
+      )}
     </div>
   );
 };
