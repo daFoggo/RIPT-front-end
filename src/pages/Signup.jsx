@@ -77,7 +77,7 @@ const Login = () => {
                             </Link>
                         </div>
 
-                        <div>
+                        <div className="self-center"> 
                             <a
                                 href="https://ript.vn/"
                                 className=" text-sm flex items-center justify-between mt-20"
@@ -86,7 +86,7 @@ const Login = () => {
                                     Viện khoa học kỹ thuật bưu điện | RIPT
                                 </p>
                                 <img
-                                    className="h-10 w-10"
+                                    className="h-10 w-10 ml-3"
                                     src="src\assets\imgs\RIPT-Logo.png"
                                     alt=""
                                 />

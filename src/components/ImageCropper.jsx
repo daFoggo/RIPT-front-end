@@ -6,6 +6,7 @@ import ReactCrop, {
     makeAspectCrop,
 } from "react-image-crop";
 import setCanvasPreview from "../JS function/setCanvasPreview";
+import { toast } from "sonner";
 
 const ASPECT_RATIO = 1;
 const MIN_DIMENSION = 150;
@@ -105,10 +106,11 @@ const ImageCropper = (props) => {
                                     imgRef.current.height
                                 )
                             );
-                            const croppedImageDadtaURL = previewCanvasRef.current.toDataURL();
-                            console.log("Cropped Image data", croppedImageDadtaURL);
+                            const croppedImageDadtaURL =
+                                previewCanvasRef.current.toDataURL();
                             props.child2updateAvatarUrl(croppedImageDadtaURL);
                             props.child2OnSetShowModal();
+                            toast.success("Thay đổi ảnh đại diện thành công!");
                         }}
                     >
                         Cắt ảnh và đặt làm ảnh đại diện
