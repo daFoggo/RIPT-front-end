@@ -1,54 +1,8 @@
-import { useRef, useEffect, useState, useContext } from "react";
-import AuthContext from "../context/AuthProvider.jsx";
+import { useState} from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import LoginAPI from "../api/LoginAPI";
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
-  const LOGIN_URL = "/authenticate";
-  const emailRef = useRef();
-  const errorRef = useRef();
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
-
-  function handleOnChangeEmail(e) {
-    setEmail(e.target.value);
-  }
-
-  function handleOnChangePassword(e) {
-    setPassword(e.target.value);
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    try {
-      const response = await LoginAPI.post(
-        LOGIN_URL,
-        JSON.stringify({ email, password }),
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials,
-        }
-      );
-    } catch (error) { }
-    setEmail("");
-    setPassword("");
-    setSuccess((s) => !s);
-  }
-
-  useEffect(() => {
-    emailRef.current.focus();
-  }, []);
-
-  useEffect(() => {
-    setError("");
-  }, [email, password]);
-
   const [showPassword, setShowPassword] = useState(false);
 
   function handleSetShowPassword() {
@@ -58,7 +12,6 @@ const Login = () => {
   return (
     <div className="login-page">
       <section className="min-h-screen flex items-center justify-center backdrop-blur-sm">
-        <p ref={errorRef} className={error ? "errormsg" : ""}></p>
         <div className="flex shadow-lg max-w-3xl p-5 rounded-xl bg-gradient-to-r from-[#f0f7ff] to-[#e0eefe]">
           {/* Form */}
           <div className="sm:w-1/2 px-8">
@@ -73,10 +26,7 @@ const Login = () => {
                 type="text"
                 name="email"
                 placeholder="Email"
-                ref={emailRef}
                 autoComplete="off"
-                onChange={handleOnChangeEmail}
-                value={email}
                 required
               />
               <div className="relative">
@@ -85,8 +35,6 @@ const Login = () => {
                   type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
-                  onChange={handleOnChangePassword}
-                  value={password}
                   required
                 />
                 <div onClick={handleSetShowPassword}>
@@ -120,22 +68,12 @@ const Login = () => {
                 <div className="flex">
                   <button
                     className="bg-[#2f61ff] rounded-xl text-white py-2 hover:scale-105 hover:bg-[#0c30ff] duration-300 flex-1"
-                    onClick={handleSubmit}
                   >
                     Đăng nhập
                   </button>
                 </div>
               </Link>
             </form>
-
-            <div className="mt-5 text-xs flex justify-between border-t-2 py-4 items-center">
-              <p>Tạo tài khoản mới...</p>
-              <Link to="/signup">
-                <button className="py-2 px-5 rounded-md border border-blue-500 bg-[#2f61ff] hover:bg-[#0c30ff] text-white text- hover:scale-105 duration-300">
-                  Đăng kí
-                </button>
-              </Link>
-            </div>
 
             <div>
               <a

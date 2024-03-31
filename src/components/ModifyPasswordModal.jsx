@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import { toast } from "sonner";
+
 const ModifyPasswordModal = (props) => {
   return (
     <div className="flex justify-center items-center h-screen overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-black bg-opacity-25 backdrop-blur-sm">
@@ -56,7 +58,10 @@ const ModifyPasswordModal = (props) => {
           </button>
           <button
             className="bg-[#172754] text-white rounded-md py-2 px-5 hover:bg-[#2c4383] hover:text-[white]"
-            onClick={props.onSetShowModal}
+            onClick={() => {
+              props.onSetShowModal();
+              toast.success("Đã cập nhật mật khẩu");
+            }}
           >
             Lưu
           </button>

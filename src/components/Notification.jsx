@@ -1,6 +1,7 @@
 import "./Notification.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
+import {toast} from 'sonner';
 
 const Notification = ({ onSetNotification }) => {
   const [totalNot, setTotalNot] = useState(0);
@@ -45,7 +46,10 @@ const Notification = ({ onSetNotification }) => {
       <div>
         <button
           className="bg-[#e9f3ff] w-full py-3 rounded-xl mt-5"
-          onClick={handleMarkAllAsRead}
+          onClick={() => {
+            handleMarkAllAsRead();
+            toast.success("Đã đọc tất cả thông báo");
+          }}
         >
           Đánh dấu tất cả là đã đọc
         </button>
