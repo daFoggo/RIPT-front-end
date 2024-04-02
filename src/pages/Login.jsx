@@ -1,20 +1,64 @@
-import { useState} from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { toast, Toaster } from "sonner";
+import axios from "axios";
 import "./Login.css";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const Login = () => {
+  const { handleLogIn, loggedIn } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    if (email === "" || password === "") {
+      toast.error("Vui lòng nhập đầy đủ thông tin");
+      console.log("error");
+      return;
+    } else {
+      try {
+        const response = await axios.post(
+          "http://222.252.29.85:19088/web/session/authenticate",
+          {
+            "jsonrpc": "2.0",
+            "params": {
+              "db": "lms_vwa",
+              "login": email,
+              "password": password,
+            }
+          }
+        );
+
+        const userData = response.data.result;
+        if (!userData) {
+          toast.error("Sai mật khẩu hoặc tài khoản")
+        } else {
+          handleLogIn(userData);
+          toast.success("Đăng nhập thành công");
+        }
+      } catch (error) {
+        console.log("Đã có lỗi xảy ra", error);
+      }
+    }
+  }
 
   function handleSetShowPassword() {
     setShowPassword((s) => !s);
   }
 
+  if (loggedIn) {
+    return <Navigate to="/"></Navigate>
+  }
   return (
     <div className="login-page">
+      <Toaster richColors position="top-center" />
       <section className="min-h-screen flex items-center justify-center backdrop-blur-sm">
         <div className="flex shadow-lg max-w-3xl p-5 rounded-xl bg-gradient-to-r from-[#f0f7ff] to-[#e0eefe]">
           {/* Form */}
-          <div className="sm:w-1/2 px-8">
+          <div className="sm:w-1/2 px-8 flex flex-col">
             <h2 className="text-[#0a175c]">ĐĂNG NHẬP</h2>
             <p className="text-sm mt-4 text-[#0a175c]">
               Cổng đăng nhập phòng Công Nghệ Số
@@ -28,6 +72,8 @@ const Login = () => {
                 placeholder="Email"
                 autoComplete="off"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <div className="relative">
                 <input
@@ -36,6 +82,8 @@ const Login = () => {
                   name="password"
                   placeholder="Password"
                   required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <div onClick={handleSetShowPassword}>
                   <svg
@@ -68,6 +116,7 @@ const Login = () => {
                 <div className="flex">
                   <button
                     className="bg-[#2f61ff] rounded-xl text-white py-2 hover:scale-105 hover:bg-[#0c30ff] duration-300 flex-1"
+                    onClick={handleSubmit}
                   >
                     Đăng nhập
                   </button>
@@ -75,7 +124,7 @@ const Login = () => {
               </Link>
             </form>
 
-            <div>
+            <div className="justify-end">
               <a
                 href="https://ript.vn/"
                 className=" text-sm flex items-center justify-between mt-20"
