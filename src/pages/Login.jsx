@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { toast, Toaster } from "sonner";
 import axios from "axios";
+
 import "./Login.css";
 import { useAuth } from "../context/AuthContext.jsx";
+
+axios.defaults.withCredentials = true;
 
 const Login = () => {
   const { handleLogIn, loggedIn } = useAuth();
@@ -20,23 +23,30 @@ const Login = () => {
       return;
     } else {
       try {
-        const response = await axios.post(
-          "http://222.252.29.85:19088/web/session/authenticate",
+        const response = await axios.get(
+          "http://192.168.10.160:8088/web/session/authenticate",
           {
             "jsonrpc": "2.0",
             "params": {
               "db": "lms_vwa",
-              "login": email,
-              "password": password,
+              "login": "admin@gmail.com",
+              "password": "@Abc12345",
             }
-          }
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          },
         );
+        
+        const session_id = response;
 
-        const userData = response.data.result;
-        if (!userData) {
+        console.log(session_id)
+        if (!session_id) {
           toast.error("Sai mật khẩu hoặc tài khoản")
         } else {
-          handleLogIn(userData);
+          handleLogIn(session_id);
           toast.success("Đăng nhập thành công");
         }
       } catch (error) {
@@ -58,7 +68,7 @@ const Login = () => {
       <section className="min-h-screen flex items-center justify-center backdrop-blur-sm">
         <div className="flex shadow-lg max-w-3xl p-5 rounded-xl bg-gradient-to-r from-[#f0f7ff] to-[#e0eefe]">
           {/* Form */}
-          <div className="sm:w-1/2 px-8 flex flex-col">
+          <div className="sm:w-1/2 px-8 flex flex-col justify-between">
             <h2 className="text-[#0a175c]">ĐĂNG NHẬP</h2>
             <p className="text-sm mt-4 text-[#0a175c]">
               Cổng đăng nhập phòng Công Nghệ Số
@@ -124,7 +134,7 @@ const Login = () => {
               </Link>
             </form>
 
-            <div className="justify-end">
+            <div className="">
               <a
                 href="https://ript.vn/"
                 className=" text-sm flex items-center justify-between mt-20"

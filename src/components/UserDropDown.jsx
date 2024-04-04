@@ -7,7 +7,7 @@ const UserDropDown = () => {
   const { handleLogOut } = useAuth();
 
   return (
-    <div className="flex flex-col userDropDown bg-white shadow-md items-center text-center">
+    <div className="flex flex-col userDropDown bg-white shadow-md items-center text-center z-50">
       <ul className="flex flex-col gap-4">
         <li className="border-b-2">
           <Link to="/account">Hồ sơ</Link>

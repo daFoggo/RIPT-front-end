@@ -12,7 +12,7 @@ const Notification = ({ onSetNotification }) => {
   }
 
   return (
-    <div className="flex flex-col notification bg-white shadow-md py-7 px-5">
+    <div className="flex flex-col notification bg-white shadow-md py-7 px-5 z-50">
       <div className="notification-header border-b-2 pb-3">
         <h1 className="font-semibold">Thông báo ({totalNot})</h1>
       </div>

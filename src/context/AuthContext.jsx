@@ -9,17 +9,16 @@ export const useAuth = () => {
 }
 
 export const AuthProvider = ({ children }) => {
-    const [loggedIn, setLoggedIn] = useState(!!Cookies.get("token"));
+    const [loggedIn, setLoggedIn] = useState(false);
 
-    const handleLogIn = (userData) => {
-        setLoggedIn(true);
-        Cookies.set("userData", JSON.stringify(userData));
+    const handleLogIn = (session_id) => {
     }
 
     const handleLogOut = () => {
-        Cookies.remove("userData");
-        setLoggedIn(false);
+        Cookies.remove("session_id");
     }
+
+    
 
     return (
         <AuthContext.Provider value={{ loggedIn, handleLogIn, handleLogOut }}>

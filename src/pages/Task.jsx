@@ -1,17 +1,73 @@
-const Task = () => {
-  return (
-    <div>
-      {/* Task cards */}
-      <div className="taskCards flex justify-evenly">
-        <div className="card">
-          <div className="bg-gradient-to-tr from-sky-400 to-blue-600 rounded-xl flex flex-col p-3">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" className="w-16 h-16 bg-white rounded-xl bg-opacity-50">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z" />
-            </svg>
-            <p className="text-xl font-semibold text-white">Công việc đang thực hiện</p>
+import TaskCard from "../components/TaskCard"
+import TaskListNavBar from "../layouts/TaskListNavBar"
+import { useTask } from '../context/TaskContext';
 
+const Task = () => {
+  const { taskType } = useTask();
+  const onGoingTasks = [
+    {
+      Ma_cong_viec: 1,
+      Ten_cong_viec: "Design a new landing page",
+      Mo_ta: "Design a new landing page for the website, it should be modern and trendy",
+      Thoi_han: "07/04/2024",
+      Trang_thai: "Đang thực hiện",
+      Ma_nguoi_giao: "XXX",
+      Ma_nguoi_thuc_hien: "YYY",
+    },
+    {
+      Ma_cong_viec: 2,
+      Ten_cong_viec: "Design a new landing page",
+      Mo_ta: "Design a new landing page for the website, it should be modern and trendy",
+      Thoi_han: "07/04/2024",
+      Trang_thai: "Đang thực hiện",
+      Ma_nguoi_giao: "XXX",
+      Ma_nguoi_thuc_hien: "YYY",
+    },
+    {
+      Ma_cong_viec: 3,
+      Ten_cong_viec: "Design a new landing page",
+      Mo_ta: "Design a new landing page for the website, it should be modern and trendy",
+      Thoi_han: "07/04/2024",
+      Trang_thai: "Đang thực hiện",
+      Ma_nguoi_giao: "XXX",
+      Ma_nguoi_thuc_hien: "YYY",
+    },
+  ];
+  const finishedTasks = [];
+  const overdueTasks = [];
+
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="taskCards bg-[#eff7ff] h-[30dvh] rounded-xl p-4 flex gap-20 justify-between">
+        <TaskCard color="bg-gradient-to-tr from-blue-400 to-sky-100" title="Đang thực hiện" tasks={onGoingTasks}></TaskCard>
+        <TaskCard color="bg-gradient-to-tr from-indigo-50 to-blue-200" title="Đã hoàn thành" tasks={finishedTasks}></TaskCard>
+        <TaskCard color="bg-gradient-to-tr from-slate-200 to-slate-400" title="Quá hạn" tasks={overdueTasks}></TaskCard>
+      </div>
+      <div className="taskList bg-[#eff7ff] h-dvh rounded-xl p-4 ">
+        <TaskListNavBar></TaskListNavBar>
+        {taskType === "Đang thực hiện" && onGoingTasks.map(task => (
+          <div key={task.Ma_cong_viec} className="my-6 p-3 bg-[#bfd6fd] rounded-r-xl rounded-l-sm border-l-[5px] border-[#172754] flex flex-col cursor-pointer relative shadow-sm">
+            <h1 className="font-bold">{task.Ten_cong_viec}</h1>
+            <div className="flex mt-3">
+              <p className="text-sm font-semibold">#{task.Ma_cong_viec}</p>
+              <p className="text-sm font-semibold opacity-75 ml-3 flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 mr-1">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                {task.Thoi_han}
+              </p>
+              <p className="text-sm font-semibold opacity-75 ml-3 flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 mr-1">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+                {task.Ma_nguoi_giao}
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
+        {taskType === "Sắp tới" && <h1>bcd</h1>}
+        {taskType === "Quá hạn" && <h1>def</h1>}
+        {taskType === "Đã hoàn thành" && <h1>ghi</h1>}
       </div>
     </div>
   )

@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ramonak/react-progress-bar": "^5.2.0",
     "axios": "^1.6.8",
+    "axios-cookiejar-support": "^5.0.0",
     "http-proxy-middleware": "^2.0.6",
     "js-cookie": "^3.0.5",
     "localforage": "^1.10.0",
@@ -21,7 +23,8 @@
     "react-image-crop": "^11.0.5",
     "react-router-dom": "^6.22.3",
     "sonner": "^1.4.41",
-    "sort-by": "^0.0.2"
+    "sort-by": "^0.0.2",
+    "superagent": "^8.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",
