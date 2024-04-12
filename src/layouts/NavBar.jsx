@@ -11,7 +11,7 @@ const NavBar = (props) => {
     }
 
     return (
-        <nav className="h-dvh">
+        <nav className="h-dvh w-full">
             <div className="navBar flex flex-col pl-5 pt-3">
                 {/* Logo */}
                 <Link to="/">
@@ -118,10 +118,7 @@ const NavBar = (props) => {
                                 </svg>
                             )}
                         </div>
-                        <div
-                            className={`calendarDropDown px-5 py-3 relative ${calendarActive ? "active" : "inactive"
-                                }`}
-                        >
+                        <div className={`calendarDropDown py-3 relative ${calendarActive ? "active" : "inactive"}`}>
                             <ul className="border-l-2 pl-3 border-[#172754] flex flex-col gap-3">
                                 <Link to="/viewCalendar">
                                     <li

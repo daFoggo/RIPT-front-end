@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import OnGoingIcon from '../icons/OnGoingIcon';
-import OverdueIcon from '../icons/OverdueIcon';
-import FinishedIcon from '../icons/FinishedIcon';
+import OnGoingIcon from './icons/OnGoingIcon.jsx';
+import OverdueIcon from './icons/OverdueIcon.jsx';
+import FinishedIcon from './icons/FinishedIcon.jsx';
 import { useTask } from '../context/TaskContext';
 
 const TaskCard = ({ color, title, tasks }) => {
@@ -11,10 +11,10 @@ const TaskCard = ({ color, title, tasks }) => {
         <div className={`shadow-sm hover:shadow-md hover:scale-[101%] duration-300 w-1/4 rounded-xl ${color} py-4 px-3 flex flex-col relative cursor-pointer`} onClick={() => setTaskType(title)}>
             {title === "Đang thực hiện" ? (
                 <OnGoingIcon/>
-            ) : title === "Quá hạn" ? (
-                <OverdueIcon />
             ) : title === "Đã hoàn thành" ? (
                 <FinishedIcon />
+            ) : title === "Quá hạn" ? (
+                <OverdueIcon />
             ) : null}
             <div className="flex-grow flex flex-col justify-end ml-3">
                 <h1 className='text-[#172754] font-bold text-5xl'>{tasks.length}</h1>

@@ -19,9 +19,11 @@ const App = () => {
     }
     return (
         <div className="App bg-gradient-to-r from-[#f0f7ff] to-[#a0c0fc] flex text-[#172754]">
-            <NavBar onSetTitle={handleSetTitle}></NavBar>
+            <div className="sticky top-0 left-0 h-screen">
+                <NavBar onSetTitle={handleSetTitle}></NavBar>
+            </div>
             <Toaster richColors position="top-center" />
-            <div className="bg-[white] flex flex-col flex-auto mt-3 mr-3 ml-16 rounded-t-2xl p-5 shadow-md">
+            <div className="bg-[white] flex flex-col flex-grow mt-3 mr-3 ml-16 rounded-t-2xl p-5 shadow-md">
                 <Header onTitle={title}></Header>
                 <Outlet></Outlet>
             </div>
