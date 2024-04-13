@@ -17,6 +17,7 @@ const App = () => {
     function handleSetTitle(event) {
         setTitle(event.target.textContent);
     }
+
     return (
         <div className="App bg-gradient-to-r from-[#f0f7ff] to-[#a0c0fc] flex text-[#172754]">
             <div className="sticky top-0 left-0 h-screen">

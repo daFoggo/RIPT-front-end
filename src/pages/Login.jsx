@@ -32,15 +32,9 @@ const Login = () => {
               "password": "1"
             }
           }
-          ,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          },
         );
 
-        const session_id = response.headers;
+        const session_id = response.data.result.cookie.value;
 
         console.log(session_id)
         if (!session_id) {
@@ -55,7 +49,7 @@ const Login = () => {
     }
   }
 
-  function handleSetShowPassword() {
+  function handleSetShowPassword(event) {
     setShowPassword((s) => !s);
   }
 
@@ -75,7 +69,7 @@ const Login = () => {
                 Đăng nhập
               </p>
 
-              <form action="" className="flex flex-col gap-4 mt-5">
+              <div className="flex flex-col gap-4 mt-5 select-none">
                 <input
                   className="p-2 mt-8 rounded-xl border border-blue-200 text-sm"
                   type="text"
@@ -132,7 +126,7 @@ const Login = () => {
                     </button>
                   </div>
                 </Link>
-              </form>
+              </div>
             </div>
 
             <div>

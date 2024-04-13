@@ -12,13 +12,13 @@ export const AuthProvider = ({ children }) => {
     const [loggedIn, setLoggedIn] = useState(false);
 
     const handleLogIn = (session_id) => {
+        Cookies.set("session_id", session_id);
+        setLoggedIn(true);
     }
 
     const handleLogOut = () => {
         Cookies.remove("session_id");
     }
-
-    
 
     return (
         <AuthContext.Provider value={{ loggedIn, handleLogIn, handleLogOut }}>
