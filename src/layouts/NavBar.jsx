@@ -3,7 +3,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "./NavBar.css";
 
-const NavBar = (props) => {
+const NavBar = () => {
     const [calendarActive, setCalendarActive] = useState(false);
 
     function handleSetCalendarActive() {
@@ -37,7 +37,7 @@ const NavBar = (props) => {
                             <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
                         </svg>
                         <Link to="/">
-                            <p className="ml-2" onClick={props.onSetTitle}>
+                            <p className="ml-2" >
                                 Trang chủ
                             </p>
                         </Link>
@@ -58,7 +58,7 @@ const NavBar = (props) => {
                             <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z" />
                         </svg>
                         <Link to="/account">
-                            <p className="ml-2" onClick={props.onSetTitle}>
+                            <p className="ml-2" >
                                 Tài khoản
                             </p>
                         </Link>
@@ -122,7 +122,7 @@ const NavBar = (props) => {
                             <ul className="border-l-2 pl-3 border-[#172754] flex flex-col gap-3">
                                 <Link to="/viewCalendar">
                                     <li
-                                        onClick={props.onSetTitle}
+
                                         className="hover:text-[#344b8a] hover:bg-[#d2e7fe] rounded p-1"
                                     >
                                         Xem lịch
@@ -130,7 +130,7 @@ const NavBar = (props) => {
                                 </Link>
                                 <Link to="/schedule-registry">
                                     <li
-                                        onClick={props.onSetTitle}
+
                                         className="hover:text-[#344b8a] hover:bg-[#d2e7fe] rounded p-1"
                                     >
                                         Đăng ký lịch
@@ -162,7 +162,7 @@ const NavBar = (props) => {
                             />
                         </svg>
                         <Link to="/task">
-                            <p className="ml-2" onClick={props.onSetTitle}>
+                            <p className="ml-2" >
                                 Công việc
                             </p>
                         </Link>
@@ -184,7 +184,7 @@ const NavBar = (props) => {
                             <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z" />
                         </svg>
                         <Link to="/create-form">
-                            <p className="ml-2" onClick={props.onSetTitle}>
+                            <p className="ml-2" >
                                 Tạo đơn
                             </p>
                         </Link>
@@ -206,7 +206,7 @@ const NavBar = (props) => {
                             <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
                         </svg>
                         <Link to="/report">
-                            <p className="ml-2" onClick={props.onSetTitle}>
+                            <p className="ml-2" >
                                 Báo cáo
                             </p>
                         </Link>

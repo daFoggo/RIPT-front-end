@@ -15,6 +15,7 @@ import CreateForm from './pages/CreateForm.jsx'
 import Report from './pages/Report.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { TaskProvider } from './context/TaskContext.jsx'
+import { CheckInProvider } from './context/CheckInContext.jsx'
 
 const router = createBrowserRouter([
   {
@@ -66,9 +67,11 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <TaskProvider>
-        <RouterProvider router={router}></RouterProvider>
-      </TaskProvider>
+      <CheckInProvider>
+        <TaskProvider>
+          <RouterProvider router={router}></RouterProvider>
+        </TaskProvider>
+      </CheckInProvider>
     </AuthProvider>
   </React.StrictMode>
 )

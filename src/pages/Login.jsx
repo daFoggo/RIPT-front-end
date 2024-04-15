@@ -49,7 +49,7 @@ const Login = () => {
     }
   }
 
-  function handleSetShowPassword(event) {
+  function handleSetShowPassword() {
     setShowPassword((s) => !s);
   }
 

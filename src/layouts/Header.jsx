@@ -3,6 +3,7 @@ import "./Header.css";
 import Notification from "../components/Notification";
 import UserDropDown from "../components/UserDropDown";
 import PropTypes from "prop-types";
+import CheckIn from "../components/CheckIn";
 
 const Header = (props) => {
     const [notification, setNotification] = useState(false);
@@ -55,6 +56,9 @@ const Header = (props) => {
 
                 <div>
                     <div className="user-and-not flex justify-end items-center">
+                        {/* Check in */}
+                        <CheckIn></CheckIn>
+
                         {/* Notification */}
                         <div ref={notiRef}>
                             <div
