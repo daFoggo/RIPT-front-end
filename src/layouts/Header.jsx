@@ -53,7 +53,6 @@ const Header = (props) => {
                 <div>
                     <h1 className="text-2xl font-semibold">{props.onTitle}</h1>
                 </div>
-
                 <div>
                     <div className="user-and-not flex justify-end items-center">
                         {/* Check in */}
@@ -62,7 +61,7 @@ const Header = (props) => {
                         {/* Notification */}
                         <div ref={notiRef}>
                             <div
-                                className="notification-button bg-[#e2effe] p-2 rounded ml-8 cursor-pointer mr-3 hover:scale-110 duration-300"
+                                className="notification-button bg-[#e2effe] p-2 rounded ml-3 cursor-pointer mr-3 hover:scale-110 duration-300"
                                 onClick={handleSetNotification}
                             >
                                 <svg
