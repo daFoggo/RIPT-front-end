@@ -97,7 +97,6 @@ const Task = () => {
                     />
                   </svg>
                   {task.Thoi_han}
-                  {task.Thoi_han}
                 </p>
                 <p className="text-sm font-semibold opacity-75 ml-3 flex justify-center items-center">
                   <svg

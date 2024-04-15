@@ -7,8 +7,7 @@ const CheckInContext = createContext();
 
 async function handleGetIP() {
     const response = await axios.get("https://ifconfig.me/all.json")
-    const ip = response.data.ip_addr;
-    return ip;
+    return response.data.ip_addr;
 }
 
 export const useCheckIn = () => {
@@ -19,8 +18,7 @@ export const CheckInProvider = ({ children }) => {
     const [isCheckedIn, setIsCheckedIn] = useState(false);
 
     async function handleSetIsCheckedIn() {
-        const userIp = await handleGetIP();
-        console.log("Ip hien tai: ", userIp);    
+        const userIp = await handleGetIP();  
 
         if (userIp === "222.252.29.85" || userIp === "14.177.225.128") {
             if (isCheckedIn === false) {
