@@ -2,18 +2,22 @@ import { useState } from "react";
 import { useForm } from "../context/FormContext";
 import FormCard from "../components/FormCard";
 import FormListNavBar from "../layouts/FormListNavBar";
+import FormModal from "../components/FormModal";
 
 const CreateForm = () => {
     const { formType } = useForm();
+    const [showFormModal, setShowFormModal] = useState(false);
     const [formKey, setFormKey] = useState();
 
-    function handleSetShowFormModal(index) {
+    function handleSetShowFormModal(index) {    
         setFormKey(index);
+        setShowFormModal((s) => !s);
     }
 
     const absentForms = [
         {
             Ma_don: 1,
+            Ten_don: "Xin nghỉ ốm",
             Ma_nguoi_dung: "XXX",
             Ma_loai_don: "Xin nghỉ",
             Ngay_tao: "2024-04-07",
@@ -23,6 +27,7 @@ const CreateForm = () => {
         },
         {
             Ma_don: 2,
+            Ten_don: "Xin nghỉ buổi sáng",
             Ma_nguoi_dung: "XXX",
             Ma_loai_don: "Xin nghỉ",
             Ngay_tao: "2024-04-10",
@@ -32,6 +37,7 @@ const CreateForm = () => {
         },
         {
             Ma_don: 3,
+            Ten_don: "Xin nghỉ buổi chiều",
             Ma_nguoi_dung: "XXX",
             Ma_loai_don: "Xin nghỉ",
             Ngay_tao: "2024-04-23",
@@ -75,7 +81,7 @@ const CreateForm = () => {
                             className="my-6 p-3 bg-[#bfd6fd] rounded-r-xl rounded-l-sm border-l-[5px] border-[#172754] flex flex-col cursor-pointer relative shadow-sm"
                             onClick={() => handleSetShowFormModal(index)}
                         >
-                            <h1 className="font-bold">{form.Ma_loai_don}</h1>
+                            <h1 className="font-bold">{form.Ten_don}</h1>
                             <div className="flex mt-3">
                                 <p className="text-sm font-semibold">#{form.Ma_don}</p>
                                 <p className="text-sm font-semibold opacity-75 ml-3 flex justify-center items-center">
@@ -110,6 +116,20 @@ const CreateForm = () => {
                 {formType === "Đơn xin về sớm" && <h1>def</h1>}
                 {formType === "Khác" && <h1>def</h1>}
             </div>
+
+            {showFormModal && (
+                <FormModal
+                    onSetShowModal={handleSetShowFormModal}
+                    formData={
+                        formType === "Đơn xin nghỉ"
+                            ? absentForms[formKey]
+                            : formType === "Đã hoàn thành"
+                                ? latelyForms[formKey]
+                                : formType === "Sắp tới" ?
+                                    earlyForms[formKey] : null
+                    }
+                ></FormModal>
+            )}
         </div>
     )
 }

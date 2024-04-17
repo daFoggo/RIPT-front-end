@@ -8,7 +8,7 @@ const TaskCard = ({ color, title, tasks }) => {
     const { setTaskType } = useTask();
 
     return (
-        <div className={`shadow-sm hover:shadow-md hover:scale-[101%] duration-300 w-1/4 rounded-xl ${color} py-4 px-3 flex flex-col relative cursor-pointer`} onClick={() => setTaskType(title)}>
+        <div className={`shadow-sm hover:shadow-md hover:scale-[101%] duration-300 w-1/3 rounded-xl ${color} py-4 px-3 flex flex-col relative cursor-pointer`} onClick={() => setTaskType(title)}>
             {title === "Đang thực hiện" ? (
                 <OnGoingIcon/>
             ) : title === "Đã hoàn thành" ? (

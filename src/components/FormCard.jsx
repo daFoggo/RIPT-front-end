@@ -8,7 +8,7 @@ const FormCard = ({ color, title, forms }) => {
     const { setFormType } = useForm();
 
     return(
-        <div className={`shadow-sm hover:shadow-md hover:scale-[101%] duration-300 w-1/4 rounded-xl ${color} py-4 px-3 flex flex-col relative cursor-pointer`} onClick={() => {setFormType(title)}}>
+        <div className={`shadow-sm hover:shadow-md hover:scale-[101%] duration-300 w-1/3 rounded-xl ${color} py-4 px-3 flex flex-col relative cursor-pointer`} onClick={() => {setFormType(title)}}>
         {title === "Đơn xin nghỉ" ? (
             <AbsentIcon></AbsentIcon>
         ) : title === "Đơn xin đến muộn" ? (

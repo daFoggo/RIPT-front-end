@@ -8,7 +8,7 @@ export const useForm = () => {
 }
 
 export const FormProvider = ({ children }) => {
-    const [formType, setFormType] = useState("Tạo đơn");
+    const [formType, setFormType] = useState("Đơn xin nghỉ");
 
     function handleSetFormType(event){
         setFormType(event.target.textContent);
