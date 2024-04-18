@@ -25,27 +25,27 @@ const TaskModal = (props) => {
                 <div className='content flex flex-col mt-3 gap-3'>
                     <div className='flex justify-between'>
                         <h1 className='font-medium'>Mã công việc: </h1>
-                        <input type="text" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2' value={props.taskData.Ma_nguoi_giao} readOnly />
+                        <input type="text" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2 border-[#bfd6fd] border-2' value={props.taskData.Ma_nguoi_giao} readOnly />
                     </div>
                     <div className='flex justify-between'>
                         <h1 className='font-medium'>Thời hạn: </h1>
-                        <input type="date" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2' value={props.taskData.Thoi_han} readOnly />
+                        <input type="date" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2 border-[#bfd6fd] border-2' value={props.taskData.Thoi_han} readOnly />
                     </div>
                     <div className='flex justify-between'>
                         <span className='font-medium'>Trạng thái: </span>
-                        <input type="text" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2' value={props.taskData.Trang_thai} readOnly />
+                        <input type="text" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2 border-[#bfd6fd] border-2' value={props.taskData.Trang_thai} readOnly />
                     </div>
                     <div className='flex justify-between'>
                         <span className='font-medium'>Người giao: </span>
-                        <input type='text' className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2' value={props.taskData.Ma_nguoi_giao} readOnly />
+                        <input type='text' className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2 border-[#bfd6fd] border-2' value={props.taskData.Ma_nguoi_giao} readOnly />
                     </div>
                     <div className='flex justify-between'>
                         <span className='font-medium'>Người thực hiện: </span>
-                        <input type='text' className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2' value={props.taskData.Ma_nguoi_thuc_hien} readOnly />
+                        <input type='text' className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2 border-[#bfd6fd] border-2' value={props.taskData.Ma_nguoi_thuc_hien} readOnly />
                     </div>
                     <div className='flex flex-col'>
                         <span className='font-medium'>Mô tả: </span>
-                        <textarea className='bg-[#e4efff] rounded-md p-1 mt-2 w-full' value={props.taskData.Mo_ta} readOnly />
+                        <textarea className='bg-[#e4efff] rounded-md p-1 mt-2 w-full border-[#bfd6fd] border-2' value={props.taskData.Mo_ta} readOnly />
                     </div>
                 </div>
             </div>

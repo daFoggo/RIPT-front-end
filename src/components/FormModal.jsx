@@ -25,27 +25,27 @@ const FormModal = (props) => {
                 <div className='content flex flex-col mt-3 gap-3'>
                     <div className='flex justify-between'>
                         <h1 className='font-medium'>Mã đơn: </h1>
-                        <input type="text" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2' value={props.formData.Ma_don} readOnly />
+                        <input type="text" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2 border-[#bfd6fd] border-2' value={props.formData.Ma_don} readOnly />
                     </div>
                     <div className='flex justify-between'>
                         <h1 className='font-medium'>Ngày tạo: </h1>
-                        <input type="date" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2' value={props.formData.Ngay} readOnly />
+                        <input type="date" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2 border-[#bfd6fd] border-2' value={props.formData.Ngay} readOnly />
                     </div>
                     <div className='flex justify-between'>
                         <span className='font-medium'>Trạng thái: </span>
-                        <input type="text" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2' value={props.formData.Trang_thai} readOnly />
+                        <input type="text" className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2 border-[#bfd6fd] border-2' value={props.formData.Trang_thai} readOnly />
                     </div>
                     <div className='flex justify-between'>
                         <span className='font-medium'>Loại đơn: </span>
-                        <input type='text' className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2' value={props.formData.Ma_loai_don} readOnly />
+                        <input type='text' className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2 border-[#bfd6fd] border-2' value={props.formData.Ma_loai_don} readOnly />
                     </div>
                     <div className='flex justify-between'>
                         <span className='font-medium'>Người duyệt: </span>
-                        <input type='text' className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2' value={props.formData.Nguoi_duyet} readOnly />
+                        <input type='text' className='bg-[#e4efff] rounded-md ml-3 p-1 w-1/2 border-[#bfd6fd] border-2' value={props.formData.Nguoi_duyet} readOnly />
                     </div>
                     <div className='flex flex-col'>
                         <span className='font-medium'>Lý do: </span>
-                        <textarea className='bg-[#e4efff] rounded-md p-1 mt-2 w-full' value={props.formData.Ly_do} readOnly />
+                        <textarea className='bg-[#e4efff] rounded-md p-1 mt-2 w-full border-[#bfd6fd] border-2' value={props.formData.Ly_do} readOnly />
                     </div>
                 </div>
             </div>

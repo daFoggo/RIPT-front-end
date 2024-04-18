@@ -209,10 +209,10 @@ const Account = () => {
         </div>
       </div>
       {modifyInfoModal && (
-        <ModifyInfoModal onSetShowModal={handleSetModifyInfoModal} />
+        <ModifyInfoModal onSetShowInfoModal={handleSetModifyInfoModal} />
       )}
       {modifyPasswordModal && (
-        <ModifyPasswordModal onSetShowModal={handleSetModifyPasswordModal} />
+        <ModifyPasswordModal onSetShowPasswordModal={handleSetModifyPasswordModal} />
       )}
       {avatarModal && (
         <AvatarModal

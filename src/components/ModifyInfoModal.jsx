@@ -14,7 +14,7 @@ const Modal = (props) => {
             strokeWidth="1.5"
             stroke="currentColor"
             className="w-6 h-6"
-            onClick={props.onSetShowModal}
+            onClick={props.onSetShowInfoModal}
           >
             <path
               strokeLinecap="round"
@@ -65,14 +65,14 @@ const Modal = (props) => {
         <div className="mt-3 flex justify-end">
           <button
             className="bg-[#e5f0ff96] rounded-md py-2 px-5 mr-2 hover:bg-[#b7c1cfa1] hover:text-[#385092]"
-            onClick={props.onSetShowModal}
+            onClick={props.onSetShowInfoModal}
           >
             Huỷ
           </button>
           <button
             className="bg-[#172754] text-white rounded-md py-2 px-5 hover:bg-[#2c4383] hover:text-[white]"
             onClick={() => {
-              props.onSetShowModal();
+              props.onSetShowInfoModal;
               toast.success("Cập nhật thông tin thành công");
             }}
           >
@@ -85,6 +85,6 @@ const Modal = (props) => {
 };
 
 Modal.propTypes = {
-  onSetShowModal: PropTypes.func,
+  onSetShowInfoModal: PropTypes.func,
 };
 export default Modal;

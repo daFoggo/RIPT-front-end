@@ -14,7 +14,7 @@ const ModifyPasswordModal = (props) => {
             strokeWidth="1.5"
             stroke="currentColor"
             className="w-6 h-6"
-            onClick={props.onSetShowModal}
+            onClick={props.onSetShowPasswordModal}
           >
             <path
               strokeLinecap="round"
@@ -52,14 +52,14 @@ const ModifyPasswordModal = (props) => {
         <div className="mt-3 flex justify-end">
           <button
             className="bg-[#e5f0ff96] rounded-md py-2 px-5 mr-2 hover:bg-[#b7c1cfa1] hover:text-[#385092]"
-            onClick={props.onSetShowModal}
+            onClick={props.onSetShowPasswordModal}
           >
             Huỷ
           </button>
           <button
             className="bg-[#172754] text-white rounded-md py-2 px-5 hover:bg-[#2c4383] hover:text-[white]"
             onClick={() => {
-              props.onSetShowModal();
+              props.onSetShowPasswordModal;
               toast.success("Đã cập nhật mật khẩu");
             }}
           >
@@ -72,6 +72,6 @@ const ModifyPasswordModal = (props) => {
 };
 
 ModifyPasswordModal.propTypes = {
-  onSetShowModal: PropTypes.func,
+  onSetShowPasswordModal: PropTypes.func,
 };
 export default ModifyPasswordModal;
